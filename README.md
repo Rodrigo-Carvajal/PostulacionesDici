@@ -1,6 +1,6 @@
-# ayudantias (ayudantiasdici)
+# Ayudantias DICI
 
-Pagina web para gesitonar las solicitudes de ayudantias
+Pagina web para gesitonar las solicitudes de ayudantias en la carrera Ingeniería civil en computación e informática
 
 ## Install the dependencies
 ```bash
