@@ -68,8 +68,9 @@ export default {
     return {
       drawer
     }
+   }
   }
-  </script>
+</script>
 
   <style lang="scss">
   .my-menu-link {
