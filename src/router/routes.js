@@ -8,8 +8,20 @@ const routes = [
       { path: '/postulaciones', component: () => import('src/pages/Postulaciones.vue') },
     ]
   },
-
-
+  {
+    path: '/',
+    component: () => import('layouts/AdminLayout.vue'),
+    children: [
+      { path: '/admin', component: () => import('pages/Admin.vue')}
+    ]
+  },
+  {
+    path: '/',
+    component: () => import('layouts/EstudianteLayout.vue'),
+    children: [
+      { path: '/estudiante', component: () => import('pages/Estudiante.vue')}
+    ]
+  },
   // Always leave this as last one,
   // but you can also remove it
   {
