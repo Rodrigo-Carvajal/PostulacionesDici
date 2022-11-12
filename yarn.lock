@@ -5052,6 +5052,18 @@ qs@6.9.6:
   resolved "https://registry.yarnpkg.com/qs/-/qs-6.9.6.tgz#26ed3c8243a431b2924aca84cc90471f35d5a0ee"
   integrity sha512-TIRk4aqYLNoJUbd+g2lEdz5kLWIuTMRagAXxl78Q0RiVjAOugHmeKNGdd3cwo/ktpf9aL9epCfFqWDEKysUlLQ==
 
+quasar-app-extension-crud@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/quasar-app-extension-crud/-/quasar-app-extension-crud-1.0.2.tgz#11136c84d930b278f3fdbf4e42ccf835c2e11571"
+  integrity sha512-Ae0xNJspM65/Iha/LuH1BaKcHsvIB+y/y9E1wyQZ3RdJFZBT8VX7u1oBz6umiOISsq8vUwP4tFslYyEKRpifmw==
+  dependencies:
+    quasar-ui-crud "^1.0.1"
+
+quasar-ui-crud@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/quasar-ui-crud/-/quasar-ui-crud-1.0.1.tgz#0e9c1c712d229682a6c542cb1ce4091454a37905"
+  integrity sha512-DBB3ggVc5pdOu5ilPRpor9BjaHQY2CFQO8mr1MSKZR9PunaZ7rl04gz/h6SrJXP9SWMlWTh9g5/ejJPTn+4Z0g==
+
 quasar@^2.0.0:
   version "2.10.1"
   resolved "https://registry.yarnpkg.com/quasar/-/quasar-2.10.1.tgz#843888c73d997a53b3808d7f4f358b1aee3a91f2"

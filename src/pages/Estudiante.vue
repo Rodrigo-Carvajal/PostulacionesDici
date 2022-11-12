@@ -13,7 +13,8 @@
             <div class="col-4">
                 <span class="text-weight-bolder">Información</span> 
                 <div class="q-pa-md q-gutter-sm">
-                    <q-btn dense square label="alert" color="primary" icon="info"/>
+                    <q-btn dense square label="alert" color="primary"  icon="info"/>
+                    <q-btn flat round color="primary" @click="edit(props.row)" icon="edit"></q-btn>
                 </div>
             </div>
             <div class="col-4">
@@ -27,6 +28,7 @@
         </div>
     </q-page>
 
+    
 </template>
 
 <script>
