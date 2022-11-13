@@ -27,8 +27,8 @@
 </template>
 --->
   <template>
-    <q-page>
-      <div class="q-pa-md">
+    <q-page padding>
+      <div>
         <q-table
           title="Treats"
           :rows="rows"

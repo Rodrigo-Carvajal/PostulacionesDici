@@ -63,9 +63,15 @@
 
           <q-img class="absolute-top" src="https://cdn.quasar.dev/img/material.png" style="height: 150px">
             <div class="absolute-bottom bg-transparent">
-              <q-avatar rounded size="56px" color="cyan-8">
-                M
+
+          <q-item clickable v-ripple to="/perfilestudiante" active-class="my-menu-link">
+            <q-item-section avatar>
+              <q-avatar rounded>
+                <img src="https://cdn.quasar.dev/img/boy-avatar.png">
               </q-avatar>
+            </q-item-section>
+            <q-item-section>Main</q-item-section>
+          </q-item>
               <div class="text-weight-bold">Main</div>
               <div>main@gmail.com</div>
             </div>

@@ -28,6 +28,13 @@ const routes = [
       { path: '/estudiante', component: () => import('pages/Estudiante.vue')}
     ]
   },
+  {
+    path: '/', //Layout Estudiante
+    component: () => import('layouts/EstudianteLayout.vue'),
+    children: [
+      { path: '/perfilestudiante', component: () => import('pages/PerfilEstudiante.vue')}
+    ]
+  },
   // Always leave this as last one,
   // but you can also remove it
   {
