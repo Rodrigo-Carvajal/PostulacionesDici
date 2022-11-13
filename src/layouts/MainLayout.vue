@@ -38,7 +38,7 @@
                 </q-item-section>
               </q-item>
 
-              <q-item clickable v-ripple to="/about" active-class="my-menu-link">
+              <q-item clickable v-ripple to="/profesor" active-class="my-menu-link">
                 <q-item-section avatar>
                   <q-icon name="star" />
                 </q-item-section>

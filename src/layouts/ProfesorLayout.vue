@@ -17,7 +17,7 @@
         <q-scroll-area style="height: calc(100% - 150px); margin-top: 150px; border-right: 1px solid #ddd">
           <q-list padding>
             <!--Inicio-->
-            <q-item clickable v-ripple to="/index" active-class="my-menu-link" exact>
+            <q-item clickable v-ripple to="/profesor" active-class="my-menu-link" exact>
               <q-item-section avatar>
                 <q-icon name="inbox" />
               </q-item-section>
@@ -28,13 +28,13 @@
             </q-item>
 
             <!--Otra opcion-->
-            <q-item clickable v-ripple to="/postulaciones" active-class="my-menu-link">
+            <q-item clickable v-ripple to="/index" active-class="my-menu-link">
               <q-item-section avatar>
                 <q-icon name="star" />
               </q-item-section>
 
               <q-item-section>
-                Postulaciones
+                Volver
               </q-item-section>
             </q-item>
 
@@ -43,12 +43,12 @@
 
         <q-img class="absolute-top" src="https://cdn.quasar.dev/img/material.png" style="height: 150px">
           <div class="absolute-bottom bg-transparent">
-            <q-avatar size="56px" class="q-mb-sm">
-              <img src="https://cdn.quasar.dev/img/boy-avatar.png">
-            </q-avatar>
-            <div class="text-weight-bold">Razvan Stoenescu</div>
-            <div>@rstoenescu</div>
-          </div>
+                <q-avatar rounded size="56px" color="cyan-8">
+                  P
+                </q-avatar>
+                <div class="text-weight-bold">Profesor</div>
+                <div>profesor@gmail.com</div>
+              </div>
         </q-img>
       </q-drawer>
 

@@ -18,7 +18,7 @@ const routes = [
     path: '/', //Layout Profesor
     component: () => import('layouts/ProfesorLayout.vue'),
     children: [
-      { path: '/about', component: () => import('src/pages/Profesor.vue') }
+      { path: '/profesor', component: () => import('src/pages/Profesor.vue') }
     ]
   },
   {
