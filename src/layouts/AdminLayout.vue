@@ -2,8 +2,8 @@
     <q-layout view="lHh Lpr lff">
           <q-header elevated class="bg-cyan-9">
             <q-toolbar>
-              <q-toolbar-title>Ayudantías DICI</q-toolbar-title>
               <q-btn flat @click="drawer = !drawer" round dense icon="menu" />
+              <q-toolbar-title>Ayudantías DICI</q-toolbar-title>
             </q-toolbar>
           </q-header>
     

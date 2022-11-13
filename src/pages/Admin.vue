@@ -29,7 +29,7 @@
   <template>
     <div class="q-pa-md">
       <q-table
-        title="Treats"
+        title="Gestión de usuarios"
         :rows="rows"
         :columns="columns"
         row-key="name"
@@ -39,18 +39,15 @@
   
   <script>
   const columns = [
-    { name: 'name', required: true, label: 'Dessert (100g serving)', align: 'left', field: row => row.name, format: val => `${val}`, sortable: true },
-    { name: 'calories', align: 'center', label: 'Calories', field: 'calories', sortable: true },
-    { name: 'fat', label: 'Fat (g)', field: 'fat', sortable: true },
-    { name: 'carbs', label: 'Carbs (g)', field: 'carbs' },
-    { name: 'protein', label: 'Protein (g)', field: 'protein' },
-    { name: 'sodium', label: 'Sodium (mg)', field: 'sodium' },
-    { name: 'calcium', label: 'Calcium (%)', field: 'calcium', sortable: true, sort: (a, b) => parseInt(a, 10) - parseInt(b, 10) },
-    { name: 'iron', label: 'Iron (%)', field: 'iron', sortable: true, sort: (a, b) => parseInt(a, 10) - parseInt(b, 10) }
+    { name: 'nombre', align: 'center', label: 'Nombre', field: 'nombre', sortable: true },
+    { name: 'correo', required: true, label: 'Correo', align: 'left', field: row => row.correo, format: val => `${val}`, sortable: true },
+    { name: 'telefono', align: 'center', label: 'Telefono', field: 'telefono'},
+    { name: 'rol', label: 'Rol', field: 'rol', sortable: true },
+    { name: 'acciones', label: 'Acciones', field: 'acciones'},
   ]
   
   const rows = [
-   
+  
   ]
   
   export default {
