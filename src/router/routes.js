@@ -5,6 +5,7 @@ const routes = [
     component: () => import('layouts/MainLayout.vue'),
     children: [
       { path: '/index', component: () => import('pages/Index.vue') }
+      //Vista login que nos llevará a otro layaout según el rol
     ]
   },
   {
@@ -25,16 +26,11 @@ const routes = [
     path: '/', //Layout Estudiante
     component: () => import('layouts/EstudianteLayout.vue'),
     children: [
-      { path: '/estudiante', component: () => import('pages/Estudiante.vue')}
-    ]
-  },
-  {
-    path: '/', //Layout Estudiante
-    component: () => import('layouts/EstudianteLayout.vue'),
-    children: [
+      { path: '/estudiante', component: () => import('pages/Estudiante.vue')},
       { path: '/perfilestudiante', component: () => import('pages/PerfilEstudiante.vue')}
     ]
   },
+ 
   // Always leave this as last one,
   // but you can also remove it
   {

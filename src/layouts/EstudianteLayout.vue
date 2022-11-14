@@ -2,7 +2,7 @@
     <q-layout view="lHh Lpr lff">
           <q-header elevated class="bg-cyan-9">
             <q-toolbar>
-              <q-toolbar-title>Estudiante</q-toolbar-title>
+              <q-toolbar-title>Ayudantías DICI</q-toolbar-title>
               <q-btn flat @click="drawer = !drawer" round dense icon="menu" />
             </q-toolbar>
           </q-header>
@@ -27,6 +27,15 @@
                   </q-item-section>
                 </q-item>
 
+                <q-item clickable v-ripple to="/perfilestudiante" active-class="my-menu-link" exact>
+                  <q-item-section avatar>
+                    <q-icon name="inbox" />
+                  </q-item-section>
+
+                  <q-item-section>
+                    Ver perfil
+                  </q-item-section>
+                </q-item>
                 <!--Otra opcion-->
                 <q-item clickable v-ripple to="/index" active-class="my-menu-link" >
                   <q-item-section avatar>
