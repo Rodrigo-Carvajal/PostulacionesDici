@@ -58,6 +58,24 @@
 </template>
 
 <script>
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-app.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  const firebaseConfig = {
+    apiKey: "AIzaSyBUMXa4Cgl5_nZI4PJEMoVmZDXxipwPGSU",
+    authDomain: "ayudantias-dici-3f95a.firebaseapp.com",
+    databaseURL: "https://ayudantias-dici-3f95a-default-rtdb.firebaseio.com",
+    projectId: "ayudantias-dici-3f95a",
+    storageBucket: "ayudantias-dici-3f95a.appspot.com",
+    messagingSenderId: "13153027539",
+    appId: "1:13153027539:web:d1c38ab1e8d42d2e045b26"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+
 import { ref } from 'vue'
 
 export default {
