@@ -27,6 +27,7 @@ const routes = [
     component: () => import('layouts/EstudianteLayout.vue'),
     children: [
       { path: '/estudiante', component: () => import('pages/Estudiante.vue')},
+      { path: '/estudiante2', component: () => import('pages/Estudiante2.vue')},
       { path: '/perfilestudiante', component: () => import('pages/PerfilEstudiante.vue')}
     ]
   },
