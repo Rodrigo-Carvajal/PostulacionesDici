@@ -48,21 +48,12 @@
                 </q-item-section>
               </q-item>
 
-              <q-item clickable v-ripple to="/estudiante" active-class="my-menu-link">
-                <q-item-section avatar>
-                  <q-icon name="star" />
-                </q-item-section>
-                <q-item-section>
-                  Estudiante
-                </q-item-section>
-              </q-item>
-
               <q-item clickable v-ripple to="/estudiante2" active-class="my-menu-link">
                 <q-item-section avatar>
                   <q-icon name="star" />
                 </q-item-section>
                 <q-item-section>
-                  Estudiante v2
+                  Estudiante
                 </q-item-section>
               </q-item>
             </q-list>
