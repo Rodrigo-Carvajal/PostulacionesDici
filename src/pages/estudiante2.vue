@@ -13,11 +13,11 @@
             <div class="col-4">
                 <span class="text-weight-bolder">Información</span> 
                 <div class="q-pa-md q-gutter-sm">
-                    <q-btn dense square color="primary" @click="alert = true" icon="info"/>
-                    <q-dialog v-model="alert">
+                    <q-btn dense square color="primary" @click="informacion = true" icon="info"/>
+                    <q-dialog v-model="informacion">
                         <q-card>
                           <q-card-section>
-                            <div class="text-h6">Alert</div>
+                            <div class="text-h6">Nombre</div>
                           </q-card-section>
                   
                             <q-card-section class="q-pt-none">
@@ -63,7 +63,7 @@ import { ref } from 'vue'
 export default {
   setup () {
     return {
-      alert: ref(false),
+      informacion: ref(false),
       postular: ref(false),
       address: ref('')
     }
