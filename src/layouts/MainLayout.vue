@@ -6,7 +6,7 @@
             <q-toolbar-title>Ayudantías DICI</q-toolbar-title>
           </q-toolbar>
         </q-header>
-  
+
         <q-drawer
           v-model="drawer"
           show-if-above
@@ -21,23 +21,14 @@
                 <q-item-section avatar>
                   <q-icon name="inbox" />
                 </q-item-section>
-  
+
                 <q-item-section>
                   Homes
                 </q-item-section>
               </q-item>
-  
+
               <!--Otra opcion-->
-              <q-item clickable v-ripple to="/about" active-class="my-menu-link">
-                <q-item-section avatar>
-                  <q-icon name="star" />
-                </q-item-section>
-                  
-                <q-item-section>
-                  Star
-                </q-item-section>
-              </q-item>
-              
+
               <q-item clickable v-ripple to="/admin" active-class="my-menu-link">
                 <q-item-section avatar>
                   <q-icon name="star" />
@@ -47,7 +38,17 @@
                 </q-item-section>
               </q-item>
 
-              <q-item clickable v-ripple to="/estudiante" active-class="my-menu-link">
+              <q-item clickable v-ripple to="/profesor" active-class="my-menu-link">
+                <q-item-section avatar>
+                  <q-icon name="star" />
+                </q-item-section>
+
+                <q-item-section>
+                  Profesor
+                </q-item-section>
+              </q-item>
+
+              <q-item clickable v-ripple to="/estudiante2" active-class="my-menu-link">
                 <q-item-section avatar>
                   <q-icon name="star" />
                 </q-item-section>
@@ -56,43 +57,49 @@
                 </q-item-section>
               </q-item>
             </q-list>
+
           </q-scroll-area>
-  
+
           <q-img class="absolute-top" src="https://cdn.quasar.dev/img/material.png" style="height: 150px">
             <div class="absolute-bottom bg-transparent">
-              <q-avatar rounded size="56px" color="cyan-8">
-                M
+
+          <q-item clickable v-ripple to="/perfilestudiante" active-class="my-menu-link">
+            <q-item-section avatar>
+              <q-avatar rounded>
+                <img src="https://cdn.quasar.dev/img/boy-avatar.png">
               </q-avatar>
+            </q-item-section>
+            <q-item-section>Main</q-item-section>
+          </q-item>
               <div class="text-weight-bold">Main</div>
               <div>main@gmail.com</div>
             </div>
           </q-img>
         </q-drawer>
-  
+
         <q-page-container>
           <router-view></router-view>
         </q-page-container>
       </q-layout>
   </template>
-  
+
   <script>
   import { ref } from 'vue'
-  
+
   export default {
     setup () {
       const drawer = ref(false)
-  
+
       return {
         drawer
       }
     }
   }
   </script>
-  
+
   <style lang="scss">
   .my-menu-link {
     color:white;
     background: #f2c037;
   }
   </style>
-  

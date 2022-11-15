@@ -58,8 +58,7 @@
       }
     }
   }
-  </script>
-  <script>
+}
+</script>
 
-  </script>
-  
+
