@@ -27,14 +27,17 @@
 </template>
 --->
 <template>
-  <div class="q-pa-md">
-    <q-table
-      title="Gestión de usuarios"
-      :rows="rows"
-      :columns="columns"
-      row-key="name"
-    />
-  </div>
+  <q-page>
+    <div class="q-pa-md">
+      <q-table
+        title="Gestión de usuarios"
+        :rows="rows"
+        :columns="columns"
+        row-key="name"
+      />
+    </div>
+  </q-page>
+  
 </template>
 
 <script>

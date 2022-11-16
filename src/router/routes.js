@@ -30,7 +30,6 @@ const routes = [
       { path: '/perfilestudiante', component: () => import('pages/PerfilEstudiante.vue')}
     ]
   },
- 
   // Always leave this as last one,
   // but you can also remove it
   {
