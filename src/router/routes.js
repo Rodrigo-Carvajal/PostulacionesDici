@@ -19,14 +19,15 @@ const routes = [
     path: '/', //Layout Profesor
     component: () => import('layouts/ProfesorLayout.vue'),
     children: [
-      { path: '/profesor', component: () => import('src/pages/Profesor.vue') }
+      { path: '/profesor', component: () => import('src/pages/Profesor.vue') },
+      { path: '/perfilprofesor', component: () => import('src/pages/PerfilProfesor.vue') }
     ]
   },
   {
     path: '/', //Layout Estudiante
     component: () => import('layouts/EstudianteLayout.vue'),
     children: [
-      { path: '/estudiante2', component: () => import('pages/estudiante2.vue')},
+      { path: '/estudiante', component: () => import('pages/estudiante2.vue')},
       { path: '/perfilestudiante', component: () => import('pages/PerfilEstudiante.vue')}
     ]
   },

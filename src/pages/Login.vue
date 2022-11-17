@@ -70,9 +70,8 @@ export default defineComponent({
     style="background: linear-gradient(#8274C5, #5A4A9F);"
   >
     <q-header>
-      <q-btn label="Admin" to="/admin" type="button" color="primary"/>
       <q-btn label="Profe" to="/profesor" type="button" color="primary"/>
-      <q-btn label="Estudiante" to="/estudiante2" type="button" color="primary"/>
+      <q-btn label="Estudiante" to="/estudiante" type="button" color="primary"/>
     </q-header>
     <div class="column q-pa-lg">
       <div class="row">
@@ -84,12 +83,12 @@ export default defineComponent({
           </q-card-section>
           <q-card-section>
             <q-form class="q-px-sm q-pt-xl">
-              <q-input square clearable v-model="email" type="email" label="Email">
+              <q-input square  v-model="email1" type="email" label="Email">
                 <template v-slot:prepend>
                   <q-icon name="email" />
                 </template>
               </q-input>
-              <q-input square clearable v-model="password" type="password" label="Password">
+              <q-input square v-model="password1" type="password" label="Password">
                 <template v-slot:prepend>
                   <q-icon name="lock" />
                 </template>
@@ -111,11 +110,12 @@ export default defineComponent({
             </div>
           </q-card-section>
           <q-card-actions class="q-px-lg">
-            <q-btn unelevated size="lg" color="purple-4" class="full-width text-white" label="Iniciar sesión" />
+            <q-btn unelevated size="lg" color="purple-4" class="full-width text-white" label="Iniciar sesión" @click="login(this.email1,this.password1,this.model1)"/>
           </q-card-actions>
         </q-card>
       </div>
     </div>
+
     <div class="column q-pa-lg">
       <div class="row">
         <q-card square class="shadow-24" style="width:300px;height:485px;">
@@ -126,12 +126,12 @@ export default defineComponent({
           </q-card-section>
           <q-card-section>
             <q-form class="q-px-sm q-pt-xl q-pb-lg">
-              <q-input square clearable v-model="email" type="email" label="Email">
+              <q-input square clearable v-model="email2" type="email" label="Email">
                 <template v-slot:prepend>
                   <q-icon name="email" />
                 </template>
               </q-input>
-              <q-input square clearable v-model="password" type="password" label="Password">
+              <q-input square clearable v-model="password2" type="password" label="Password">
                 <template v-slot:prepend>
                   <q-icon name="lock" />
                 </template>
@@ -154,6 +154,7 @@ export default defineComponent({
           </q-card-section>
           <q-card-actions class="q-px-lg">
             <q-btn unelevated size="lg" outline color="purple-4" class="full-width text-white" label="Registrar" />
+            
           </q-card-actions>
         </q-card>
       </div>
@@ -166,13 +167,22 @@ import { ref } from 'vue';
 
 export default {
   name: 'Login',
-  data () {
+  components:{
+
+  },
+  data: function() {
     return {
-      email: '',
-      username: '',
-      password: '',
+      email1: '',
+      email2: '',
+      password1: '',
+      password2: '',
       model1: ref(null),
       model2: ref(null)
+    }
+  },
+  methods:{
+    login(email1,password1,model1){
+      console.log(this.email1,this,password1,this.model1);
     }
   }
 }

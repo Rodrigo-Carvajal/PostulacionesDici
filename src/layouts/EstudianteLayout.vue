@@ -27,7 +27,7 @@
                   </q-item-section>
                 </q-item>
 
-                <q-item clickable v-ripple to="/perfilestudiante" active-class="my-menu-link" exact>
+                <q-item clickable v-ripple to="/perfilestudiante" active-class="my-menu-link" >
                   <q-item-section avatar>
                     <q-icon name="inbox" />
                   </q-item-section>
