@@ -37,7 +37,7 @@
                   </q-item-section>
                 </q-item>
                 <!--Otra opcion-->
-                <q-item clickable v-ripple to="/index" active-class="my-menu-link" >
+                <q-item clickable v-ripple to="/" active-class="my-menu-link" >
                   <q-item-section avatar>
                     <q-icon name="star" />
                   </q-item-section>

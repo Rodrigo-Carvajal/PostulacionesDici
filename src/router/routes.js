@@ -2,9 +2,9 @@
 const routes = [
   {
     path: '/', //Layout Main
-    component: () => import('layouts/MainLayout.vue'),
+    component: () => import('layouts/LoginLayout.vue'),
     children: [
-      { path: '/index', component: () => import('pages/Index.vue') }
+      { path: '/', component: () => import('src/pages/Login.vue') }
       //Vista login que nos llevará a otro layaout según el rol
     ]
   },
