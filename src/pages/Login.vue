@@ -83,7 +83,17 @@ export default defineComponent({
           </q-card-section>
           <q-card-section>
             <q-form class="q-px-sm q-pt-xl">
-              <q-input square  v-model="email1" type="email" label="Email">
+              <q-input 
+              square 
+              v-model="email1" 
+              type="email" 
+              label="Email"
+              lazy-rules
+              :rules="[
+                val => val && val.length > 0 || 'Este campo es obligatorio',
+                
+              ]"
+              >
                 <template v-slot:prepend>
                   <q-icon name="email" />
                 </template>
@@ -99,7 +109,7 @@ export default defineComponent({
             <div class="text-center q-pa-md q-gutter-md">
               
               <q-btn-toggle
-                v-model="model1"
+                v-model="rol1"
                 toggle-color="primary"
                 :options="[
                   {label: 'Profe', value: 'Profesor'},
@@ -110,7 +120,7 @@ export default defineComponent({
             </div>
           </q-card-section>
           <q-card-actions class="q-px-lg">
-            <q-btn unelevated size="lg" color="purple-4" class="full-width text-white" label="Iniciar sesión" @click="login(this.email1,this.password1,this.model1)"/>
+            <q-btn unelevated size="lg" color="purple-4" class="full-width text-white" label="Iniciar sesión" @click="login"/>
           </q-card-actions>
         </q-card>
       </div>
@@ -139,7 +149,7 @@ export default defineComponent({
                 <br/>
                 <div class="text-center q-pa-md q-gutter-md">
                   <q-btn-toggle
-                    v-model="model2"
+                    v-model="rol2"
                     toggle-color="primary"
                     :options="[
                       {label: 'Profe', value: 'Profesor'},
@@ -153,7 +163,7 @@ export default defineComponent({
             </q-form>
           </q-card-section>
           <q-card-actions class="q-px-lg">
-            <q-btn unelevated size="lg" outline color="purple-4" class="full-width text-white" label="Registrar" />
+            <q-btn unelevated size="lg" outline color="purple-4" class="full-width text-white" @click="registrar" label="Registrar" />
             
           </q-card-actions>
         </q-card>
@@ -168,7 +178,7 @@ import { ref } from 'vue';
 export default {
   name: 'Login',
   components:{
-
+  
   },
   data: function() {
     return {
@@ -176,13 +186,19 @@ export default {
       email2: '',
       password1: '',
       password2: '',
-      model1: ref(null),
-      model2: ref(null)
+      rol1: ref(null),
+      rol2: ref(null)
     }
   },
   methods:{
-    login(email1,password1,model1){
-      console.log(this.email1,this,password1,this.model1);
+    login(email1,password1,rol1){
+      console.log(this.email1,this,password1,this.rol1);
+      console.log("🚀 ~ file: Login.vue ~ line 186 ~ login ~ this.email1,this,password1,this.rol1", this.email1,this,password1,this.rol1)
+      
+    },
+    registrar(email2,password2){
+      console.log(this.email2,this.password2)
+      console.log("🚀 ~ file: Login.vue ~ line 201 ~ registrar ~ this.email2,this.password2", this.email2,this.password2)
     }
   }
 }
