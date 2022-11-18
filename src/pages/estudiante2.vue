@@ -1,5 +1,5 @@
 <template>
-    <q-page padding>
+    <q-page style="background-color: rgb(240,2100,240);" padding>
            <h4>Solicitudes</h4>
            <div class="row text-left">
             <div class="col-4 ">

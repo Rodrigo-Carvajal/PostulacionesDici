@@ -1,5 +1,5 @@
 <template>
-  <q-page padding>
+  <q-page style="background-color: rgb(240,2100,240);" padding>
       <h4>Postulaciones</h4>
 
       <q-form class="row q-col-gutter-md" @submit.prevent="procesarFormulario" @reset="reset"  ref="myForm">
@@ -144,3 +144,7 @@ export default {
   },
 }
 </script>
+
+<style>
+
+</style>
