@@ -12,7 +12,9 @@
   "dependencies": {
     "@quasar/extras": "^1.0.0",
     "core-js": "^3.6.5",
-    "quasar": "^2.0.0",
+    "firebase": "^9.14.0",
+    "firestore": "^1.1.6",
+    "quasar": "^2.10.2",
     "vue": "^3.0.0",
     "vue-router": "^4.0.0"
   },

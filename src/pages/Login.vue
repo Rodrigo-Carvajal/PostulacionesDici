@@ -83,15 +83,15 @@ export default defineComponent({
           </q-card-section>
           <q-card-section>
             <q-form class="q-px-sm q-pt-xl">
-              <q-input 
-              square 
-              v-model="email1" 
-              type="email" 
+              <q-input
+              square
+              v-model="email1"
+              type="email"
               label="Email"
               lazy-rules
               :rules="[
                 val => val && val.length > 0 || 'Este campo es obligatorio',
-                
+
               ]"
               >
                 <template v-slot:prepend>
@@ -107,7 +107,7 @@ export default defineComponent({
           </q-card-section>
           <q-card-section>
             <div class="text-center q-pa-md q-gutter-md">
-              
+
               <q-btn-toggle
                 v-model="rol1"
                 toggle-color="primary"
@@ -120,7 +120,7 @@ export default defineComponent({
             </div>
           </q-card-section>
           <q-card-actions class="q-px-lg">
-            <q-btn unelevated size="lg" color="purple-4" class="full-width text-white" label="Iniciar sesión" @click="login"/>
+            <q-btn unelevated size="lg" color="purple-4" class="full-width text-white" label="Iniciar sesión" @click="login(email1,password1,rol1)"/>
           </q-card-actions>
         </q-card>
       </div>
@@ -158,12 +158,13 @@ export default defineComponent({
                   >
                   </q-btn-toggle>
                 </div>
-                  
-                
+
+
             </q-form>
           </q-card-section>
           <q-card-actions class="q-px-lg">
-            <q-btn unelevated size="lg" color="purple-4" class="full-width text-white" @click="registrar" label="Registrar"/>
+            <q-btn unelevated size="lg" outline color="purple-4" class="full-width text-white" @click="registrar(email2,password2)" label="Registrar" />
+
           </q-card-actions>
         </q-card>
       </div>
@@ -173,10 +174,16 @@ export default defineComponent({
 
 <script>
 import { ref } from 'vue';
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword} from "firebase/auth";
+import { auth } from 'src/boot/firebase';
+
 
 export default {
+
+
+  name: 'Login',
   components:{
-  
+
   },
   data: function() {
     return {
@@ -190,14 +197,36 @@ export default {
   },
   methods:{
     login(email1,password1,rol1){
-      console.log(this.email1,this.password1,this.rol1);
-      console.log("🚀 ~ file: Login.vue ~ line 186 ~ login", this.email1,this,password1,this.rol1)
-      
+      signInWithEmailAndPassword(auth, email1, password1)
+      .then((userCredential) => {
+        const user = userCredential.user;
+        window.location.assign("#/admin");
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        console.log(errorCode);
+        console.log(errorMessage);
+      });
+      console.log(email1,password1,rol1);
+      /* console.log("🚀 ~ file: Login.vue ~ line 186 ~ login ~ this.email1,this,password1,this.rol1", this.email1,this,password1,this.rol1) */
     },
     registrar(email2,password2){
-      console.log(this.email2,this.password2)
-      console.log("🚀 ~ file: Login.vue ~ line 201 ~ registrar ~", this.email2,this.password2)
+      createUserWithEmailAndPassword(auth, email2, password2)
+      .then((userCredential) => {
+        const user = userCredential.user;
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        console.log(errorCode);
+        console.log(errorMessage);
+
+      });
+      console.log(email2,password2)
+      /* console.log("🚀 ~ file: Login.vue ~ line 201 ~ registrar ~ this.email2,this.password2", this.email2,this.password2) */
     }
+
   }
 }
 </script>
