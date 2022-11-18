@@ -163,8 +163,7 @@ export default defineComponent({
             </q-form>
           </q-card-section>
           <q-card-actions class="q-px-lg">
-            <q-btn unelevated size="lg" outline color="purple-4" class="full-width text-white" @click="registrar" label="Registrar" />
-            
+            <q-btn unelevated size="lg" color="purple-4" class="full-width text-white" @click="registrar" label="Registrar"/>
           </q-card-actions>
         </q-card>
       </div>
@@ -176,7 +175,6 @@ export default defineComponent({
 import { ref } from 'vue';
 
 export default {
-  name: 'Login',
   components:{
   
   },
@@ -192,13 +190,13 @@ export default {
   },
   methods:{
     login(email1,password1,rol1){
-      console.log(this.email1,this,password1,this.rol1);
-      console.log("🚀 ~ file: Login.vue ~ line 186 ~ login ~ this.email1,this,password1,this.rol1", this.email1,this,password1,this.rol1)
+      console.log(this.email1,this.password1,this.rol1);
+      console.log("🚀 ~ file: Login.vue ~ line 186 ~ login", this.email1,this,password1,this.rol1)
       
     },
     registrar(email2,password2){
       console.log(this.email2,this.password2)
-      console.log("🚀 ~ file: Login.vue ~ line 201 ~ registrar ~ this.email2,this.password2", this.email2,this.password2)
+      console.log("🚀 ~ file: Login.vue ~ line 201 ~ registrar ~", this.email2,this.password2)
     }
   }
 }
