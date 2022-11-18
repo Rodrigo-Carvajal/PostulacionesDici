@@ -27,8 +27,18 @@
               </q-item-section>
             </q-item>
 
+            <q-item clickable v-ripple to="/perfilprofesor" active-class="my-menu-link">
+              <q-item-section avatar>
+                <q-icon name="inbox" />
+              </q-item-section>
+
+              <q-item-section>
+                Ver perfil
+              </q-item-section>
+            </q-item>
+
             <!--Otra opcion-->
-            <q-item clickable v-ripple to="/index" active-class="my-menu-link">
+            <q-item clickable v-ripple to="/" active-class="my-menu-link">
               <q-item-section avatar>
                 <q-icon name="star" />
               </q-item-section>
