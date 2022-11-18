@@ -2,9 +2,9 @@
 const routes = [
   {
     path: '/', //Layout Main
-    component: () => import('layouts/MainLayout.vue'),
+    component: () => import('layouts/LoginLayout.vue'),
     children: [
-      { path: '/index', component: () => import('pages/Index.vue') }
+      { path: '/', component: () => import('src/pages/Login.vue') }
       //Vista login que nos llevará a otro layaout según el rol
     ]
   },
@@ -19,14 +19,15 @@ const routes = [
     path: '/', //Layout Profesor
     component: () => import('layouts/ProfesorLayout.vue'),
     children: [
-      { path: '/profesor', component: () => import('src/pages/Profesor.vue') }
+      { path: '/profesor', component: () => import('src/pages/Profesor.vue') },
+      { path: '/perfilprofesor', component: () => import('src/pages/PerfilProfesor.vue') }
     ]
   },
   {
     path: '/', //Layout Estudiante
     component: () => import('layouts/EstudianteLayout.vue'),
     children: [
-      { path: '/estudiante2', component: () => import('pages/estudiante2.vue')},
+      { path: '/estudiante', component: () => import('pages/estudiante2.vue')},
       { path: '/perfilestudiante', component: () => import('pages/PerfilEstudiante.vue')}
     ]
   },
