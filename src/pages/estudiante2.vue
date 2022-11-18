@@ -58,62 +58,9 @@
 </template>
 
 <script>
-import { initializeApp } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-app.js";
-  // TODO: Add SDKs for Firebase products that you want to use
-  // https://firebase.google.com/docs/web/setup#available-libraries
-
-  // Your web app's Firebase configuration
-  const firebaseConfig = {
-    apiKey: "AIzaSyBUMXa4Cgl5_nZI4PJEMoVmZDXxipwPGSU",
-    authDomain: "ayudantias-dici-3f95a.firebaseapp.com",
-    databaseURL: "https://ayudantias-dici-3f95a-default-rtdb.firebaseio.com",
-    projectId: "ayudantias-dici-3f95a",
-    storageBucket: "ayudantias-dici-3f95a.appspot.com",
-    messagingSenderId: "13153027539",
-    appId: "1:13153027539:web:d1c38ab1e8d42d2e045b26"
-  };
-
-  // Initialize Firebase
-  const app = initializeApp(firebaseConfig);
-
 import { ref } from 'vue'
-import { db } from 'src/boot/firebase'
-/* import { collection, getDocs } from "firebase/firestore";
-
-const querySnapshot = await getDocs(collection(db, "asignatura"));
-querySnapshot.forEach((doc) => {
-  // doc.data() is never undefined for query doc snapshots
-  console.log(doc.id, " => ", doc.data());
-});
-
-
-const docRef = doc(db, "usuarios", "asignatura")
-const docSnap = getDoc(docRef);
-
-console.log(db.collection.usuarios) */
-
 
 export default {
-
-
-  /* methods:{
-    async obtenerAsignatura(){
-      try {
-        const resDB = await db.collection('estudiante').get()
-
-        resDB.forEach(res=>{
-          console.log(res.asignatura)
-          const estudiante = {
-            asignatura: res.asignatura
-          }
-        })
-      } catch (error) {
-        console.log(erre)
-      }
-    }
-  }, */
-
-
   setup () {
     return {
       informacion: ref(false),
