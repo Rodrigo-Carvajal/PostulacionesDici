@@ -68,7 +68,7 @@
 import {ref} from 'vue'
 import { useQuasar } from 'quasar'
 import ListaAyudantias from 'src/components/ListaAyudantias.vue'
- 
+
 const columns = [
   { name: 'nombre', align: 'center', label: 'Nombre', field: 'nombre', sortable: true },
   { name: 'correo', required: true, label: 'Correo', align: 'left', field: row => row.correo, format: val => `${val}`, sortable: true },
@@ -90,7 +90,7 @@ export default {
       const seleccion = ref(null)
       const hora = ref(null)
       const requisito = ref(null)
-      const opciones = []
+      const opciones = ['Hola']
       const eliminar = ref(null)
 
       const ayudantias = ref([])

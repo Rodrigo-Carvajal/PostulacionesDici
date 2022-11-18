@@ -163,7 +163,7 @@ export default defineComponent({
             </q-form>
           </q-card-section>
           <q-card-actions class="q-px-lg">
-            <q-btn unelevated size="lg" outline color="purple-4" class="full-width text-white" @click="registrar(email2,password2)" label="Registrar" />
+            <q-btn unelevated size="lg" outline color="purple-4" class="full-width text-white" @click="registrar(email2,password2,rol2)" label="Registrar" />
 
           </q-card-actions>
         </q-card>
@@ -200,7 +200,14 @@ export default {
       signInWithEmailAndPassword(auth, email1, password1)
       .then((userCredential) => {
         const user = userCredential.user;
-        window.location.assign("#/admin");
+        if (user.rol1 == "Profesor"){
+          window.location.assign("#/profesor");
+
+        }
+        else if(this.rol1 == "Estudiante") {
+          window.location.assign("#/estudiante");
+        }
+
       })
       .catch((error) => {
         const errorCode = error.code;
@@ -211,7 +218,7 @@ export default {
       console.log(email1,password1,rol1);
       /* console.log("🚀 ~ file: Login.vue ~ line 186 ~ login ~ this.email1,this,password1,this.rol1", this.email1,this,password1,this.rol1) */
     },
-    registrar(email2,password2){
+    registrar(email2,password2,rol2){
       createUserWithEmailAndPassword(auth, email2, password2)
       .then((userCredential) => {
         const user = userCredential.user;
@@ -223,7 +230,7 @@ export default {
         console.log(errorMessage);
 
       });
-      console.log(email2,password2)
+      console.log(email2,password2, rol2);
       /* console.log("🚀 ~ file: Login.vue ~ line 201 ~ registrar ~ this.email2,this.password2", this.email2,this.password2) */
     }
 
