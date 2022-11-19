@@ -1,10 +1,10 @@
 <template>
-  <q-page class="q-pa-sm" style="background-color: rgb(240,2100,240);">
+  <q-page style="background-color: rgb(240,2100,240);" padding>
     <div class="q-col-gutter-sm">
       <div class="col-lg-8 col-md-8 col-xs-12 col-sm-12">
         <q-card class="card-bg text-white flex-center">
           <q-card-section class="text-h6">
-            <div class="text-h6" style="color:rgb(53,53,53)" >Editar perfil</div>
+            <div class="text-h6" style="color:black">Editar perfil</div>
           </q-card-section>
           <q-card-section class="q-pa-sm">
             <q-list class="row">
@@ -40,7 +40,7 @@
           </q-card-actions>
         </q-card>
       </div>
- 
+
     </div>
   </q-page>
 </template>

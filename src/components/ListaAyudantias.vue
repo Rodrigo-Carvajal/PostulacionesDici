@@ -6,6 +6,8 @@
       :columns="columns"
       :rows="ayudantias"
   />
+
+
 </template>
 
 <script>
@@ -26,10 +28,17 @@ const columns = [
         sortable: true
     },
     {
-        name: 'hora',
-        label: 'Hora de clases',
+        name: 'grupos',
+        label: 'Grupo de curso',
         align: 'left',
-        field: 'hora',
+        field: 'grupos',
+        sortable: true
+    },
+    {
+        name: 'sala',
+        label: 'Sala de clases',
+        align: 'left',
+        field: 'sala',
         sortable: true
     },
     {
@@ -38,15 +47,24 @@ const columns = [
         align: 'left',
         field: 'requisitos',
         sortable: true
-    }
+    },
+    {
+        name: 'hora',
+        label: 'Hora de clases',
+        align: 'left',
+        field: 'hora',
+        sortable: true
+    },
 ]
 
 const rows = [
     {
         profesor: 'p',
         asignatura: 's',
-        hora: 'h',
-        requisitos: 'r'
+        grupos: 'g',
+        sala: 's',
+        requisitos: 'r',
+        hora: 'h'
     }
 ]
 

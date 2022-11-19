@@ -4,7 +4,7 @@
 
       <q-form class="row q-col-gutter-md" @submit.prevent="procesarFormulario" @reset="reset"  ref="myForm">
 
-          <div class="col-12 col-sm-3">
+          <div class="col-12 col-sm-4">
               <q-input
                 label="Profesor"
                 v-model="profesor"
@@ -13,7 +13,7 @@
               />
           </div>
 
-          <div class="col-12 col-sm-3">
+          <div class="col-12 col-sm-4">
               <q-select
                 label="Asignatura"
                 v-model="seleccion"
@@ -23,23 +23,42 @@
               />
           </div>
 
-          <div class="col-12 col-sm-3">
-            <q-slider
-            markers=""
-            marker-labels=""
-            v-model="hora"
-            :min="1"
-            :max="8"
-            color="cyan-9"
-            />
+          <div class="col-12 col-sm-4">
+              <q-select
+                label="Grupo"
+                v-model="grupos"
+                lazy-rules
+                :options="grupo"
+                :rules="[val => val && val.length > 0 || 'Falta Información']"
+              />
           </div>
 
-          <div class="col-12 col-sm-3">
+          <div class="col-12 col-sm-4">
+              <q-input
+                label="Sala de clases"
+                v-model="sala"
+                lazy-rules
+                :rules="[val => val && val.length > 0 || 'Falta Información']"
+              />
+          </div>
+
+          <div class="col-12 col-sm-4">
               <q-input
                 label="Requisitos"
                 v-model="requisito"
                 lazy-rules
                 :rules="[val => val && val.length > 0 || 'Falta Información']"
+              />
+          </div>
+
+          <div class="col-12 col-sm-4">
+              <q-slider
+                markers=""
+                marker-labels=""
+                v-model="hora"
+                :min="1"
+                :max="8"
+                color="cyan-9"
               />
           </div>
 
@@ -51,16 +70,10 @@
               />
          </div>
     </q-form>
+
     <lista-ayudantias :ayudantias="ayudantias"/>
 
-    <div class="q-pa-md">
-      <q-table
-        title="Gestión de usuarios"
-        :rows="rows"
-        :columns="columns"
-        row-key="name"
-      />
-    </div>
+
   </q-page>
 </template>
 
@@ -69,17 +82,6 @@ import {ref} from 'vue'
 import { useQuasar } from 'quasar'
 import ListaAyudantias from 'src/components/ListaAyudantias.vue'
 
-const columns = [
-  { name: 'nombre', align: 'center', label: 'Nombre', field: 'nombre', sortable: true },
-  { name: 'correo', required: true, label: 'Correo', align: 'left', field: row => row.correo, format: val => `${val}`, sortable: true },
-  { name: 'telefono', align: 'center', label: 'Telefono', field: 'telefono'},
-  { name: 'rol', label: 'Rol', field: 'rol', sortable: true },
-  { name: 'acciones', label: 'Acciones', field: 'acciones'},
-]
-
-const rows = [
-
-]
 
 export default {
   components: { ListaAyudantias },
@@ -88,9 +90,12 @@ export default {
       const myForm = ref(null)
       const profesor = ref(null)
       const seleccion = ref(null)
+      const grupos = ref(null)
       const hora = ref(null)
       const requisito = ref(null)
+      const sala = ref(null)
       const opciones = ['Hola']
+      const grupo = ['A','B','C']
       const eliminar = ref(null)
 
       const ayudantias = ref([])
@@ -105,9 +110,10 @@ export default {
           ayudantias.value = [...ayudantias.value,{
               profesor: profesor.value,
               asignatura: seleccion.value,
-              hora: hora.value,
-              requisitos: requisito.value
-
+              grupos: grupos.value,
+              sala: sala.value,
+              requisitos: requisito.value,
+              hora: hora.value
           }]
 
           reset()
@@ -116,8 +122,10 @@ export default {
       const reset = () => {
           profesor.value = null
           seleccion.value = null
-          hora.value = null
+          grupos.value = null
+          sala.value = null
           requisito.value = null
+          hora.value = null
       }
 
     /*  const eliminarPostulaciones = () => {
@@ -129,17 +137,18 @@ export default {
       return {
         profesor,
         seleccion,
+        grupos,
         hora,
         requisito,
+        sala,
         opciones,
+        grupo,
         procesarFormulario,
         reset,
         //eliminarPostulaciones,
         myForm,
         ayudantias,
-        eliminar,
-        columns,
-        rows
+        eliminar
       }
   },
 }
