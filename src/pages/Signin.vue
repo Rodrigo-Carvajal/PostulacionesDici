@@ -35,7 +35,16 @@
                     <q-icon name="lock" />
                   </template>
                 </q-input>
-                  <br/>
+                  <q-input 
+                  square 
+                  clearable 
+                  v-model="password2" 
+                  type="text" 
+                  label="Rut">
+                  <template v-slot:prepend>
+                    <q-icon name="Assignment" />
+                  </template>
+                </q-input>
               </q-form>
             </q-card-section>
             <q-card-actions class="q-px-lg">

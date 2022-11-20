@@ -118,10 +118,10 @@ export default defineComponent({
             </q-card-section>
             <q-card-actions class="q-px-lg">
               <q-card-section>
-                <q-btn unelevated size="lg" color="cyan-9" class="full-width " label="Iniciar sesión" @click="login(email1,password1,rol1)"/>
+                <q-btn unelevated size="l" color="cyan-9" class="full-width " label="Iniciar sesión" @click="login(email1,password1,rol1)"/>
               </q-card-section>
               <q-card-section>
-                <q-btn unelevated outline size="lg" color="cyan-9" class="full-width text-white" label="Registrarse"/>
+                <q-btn unelevated outline size="l" color="cyan-8" to="/signin" class="full-width text-white" label="¿No tienes cuenta?"/>
               </q-card-section>
 
             </q-card-actions>
