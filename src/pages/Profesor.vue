@@ -1,9 +1,8 @@
 <template>
   <q-page style="background-color: rgb(240,2100,240);" padding>
       <h4>Postulaciones</h4>
-
-      <q-form class="row q-col-gutter-md" @submit.prevent="procesarFormulario" @reset="reset"  ref="myForm">
-
+      <q-form @submit.prevent="procesarFormulario" @reset="reset"  ref="myForm">
+        <q-card class="card-bg row q-col-gutter-md">
           <div class="col-12 col-sm-4">
               <q-input
                 label="Profesor"
@@ -17,6 +16,8 @@
               <q-select
                 label="Asignatura"
                 v-model="seleccion"
+                transition-show="flip-up"
+                transition-hide="flip-down"
                 lazy-rules
                 :options="opciones"
                 :rules="[val => val && val.length > 0 || 'Falta Información']"
@@ -27,6 +28,8 @@
               <q-select
                 label="Grupo"
                 v-model="grupos"
+                transition-show="flip-up"
+                transition-hide="flip-down"
                 lazy-rules
                 :options="grupo"
                 :rules="[val => val && val.length > 0 || 'Falta Información']"
@@ -34,10 +37,13 @@
           </div>
 
           <div class="col-12 col-sm-4">
-              <q-input
+              <q-select
                 label="Sala de clases"
-                v-model="sala"
+                v-model="salas"
+                transition-show="flip-up"
+                transition-hide="flip-down"
                 lazy-rules
+                :options="sala"
                 :rules="[val => val && val.length > 0 || 'Falta Información']"
               />
           </div>
@@ -52,26 +58,27 @@
           </div>
 
           <div class="col-12 col-sm-4">
-              <q-slider
-                markers=""
-                marker-labels=""
+              <q-input
                 v-model="hora"
-                :min="1"
-                :max="8"
+                type="number"
+                label="Horas de clases(En cantidad de clases a la semana)"
                 color="cyan-9"
+                :rules="[val => val && val.length > 0 || 'Falta Información']"
               />
           </div>
-
-          <div class="col-12">
+          <q-card-section>
               <q-btn
                 label="Agregar"
-                color="secondary"
+                color="cyan-10"
                 type="submit"
               />
-         </div>
+          </q-card-section>
+              
+        </q-card>
+          
     </q-form>
 
-    <lista-ayudantias :ayudantias="ayudantias"/>
+    <lista-ayudantias class="card-bg" :ayudantias="ayudantias"/>
 
 
   </q-page>
@@ -93,9 +100,27 @@ export default {
       const grupos = ref(null)
       const hora = ref(null)
       const requisito = ref(null)
-      const sala = ref(null)
-      const opciones = ['Hola']
-      const grupo = ['A','B','C']
+      const salas = ref(null)
+      const opciones = [
+        'Taller de programación I',
+        'Taller de programación II',
+        'Programación orientada a Objetos',
+        'Fundamentos de Lenguajes de Programación',
+        'Algoritmos y estructuras de datos',
+        'Arquitectura de computadores',
+        'Tecnología Web',
+        'Sistemas Operativos',
+        'Bases de datos'
+      ]
+      const sala = [
+        'Licancabur',
+        'Socompa',
+        'Guallatire',
+        'Azufre',
+        'Parinacota',
+        'Pomerape'
+      ]
+      const grupo = ['A','B','C','D']
       const eliminar = ref(null)
 
       const ayudantias = ref([])
@@ -111,7 +136,7 @@ export default {
               profesor: profesor.value,
               asignatura: seleccion.value,
               grupos: grupos.value,
-              sala: sala.value,
+              sala: salas.value,
               requisitos: requisito.value,
               hora: hora.value
           }]
@@ -123,7 +148,7 @@ export default {
           profesor.value = null
           seleccion.value = null
           grupos.value = null
-          sala.value = null
+          salas.value = null
           requisito.value = null
           hora.value = null
       }
@@ -140,6 +165,7 @@ export default {
         grupos,
         hora,
         requisito,
+        salas,
         sala,
         opciones,
         grupo,
@@ -155,5 +181,10 @@ export default {
 </script>
 
 <style>
-
+.card-bg {
+  background-color: black;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 1200 800'%3E%3Cdefs%3E%3CradialGradient id='a' cx='0' cy='800' r='800' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%23bfffe7'/%3E%3Cstop offset='1' stop-color='%23bfffe7' stop-opacity='0'/%3E%3C/radialGradient%3E%3CradialGradient id='b' cx='1200' cy='800' r='800' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%2388e1e3'/%3E%3Cstop offset='1' stop-color='%2388e1e3' stop-opacity='0'/%3E%3C/radialGradient%3E%3CradialGradient id='c' cx='600' cy='0' r='600' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%2340ebcc'/%3E%3Cstop offset='1' stop-color='%2340ebcc' stop-opacity='0'/%3E%3C/radialGradient%3E%3CradialGradient id='d' cx='600' cy='800' r='600' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%23FFFFFF'/%3E%3Cstop offset='1' stop-color='%23FFFFFF' stop-opacity='0'/%3E%3C/radialGradient%3E%3CradialGradient id='e' cx='0' cy='0' r='800' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%237FFFCE'/%3E%3Cstop offset='1' stop-color='%237FFFCE' stop-opacity='0'/%3E%3C/radialGradient%3E%3CradialGradient id='f' cx='1200' cy='0' r='800' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%2329ACAF'/%3E%3Cstop offset='1' stop-color='%2329ACAF' stop-opacity='0'/%3E%3C/radialGradient%3E%3C/defs%3E%3Crect fill='url(%23a)' width='1200' height='800'/%3E%3Crect fill='url(%23b)' width='1200' height='800'/%3E%3Crect fill='url(%23c)' width='1200' height='800'/%3E%3Crect fill='url(%23d)' width='1200' height='800'/%3E%3Crect fill='url(%23e)' width='1200' height='800'/%3E%3Crect fill='url(%23f)' width='1200' height='800'/%3E%3C/svg%3E");
+  background-attachment: fixed;
+  background-size: cover;
+}
 </style>

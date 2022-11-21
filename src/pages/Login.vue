@@ -1,69 +1,3 @@
-<!---
-<template>
-  <q-layout>
-    <q-page-container>
-      <q-page class="flex bg-image flex-center">
-        <q-card v-bind:style="$q.screen.lt.sm?{'width': '80%'}:{'width':'30%'}">
-          <q-card-section>
-            <div class="text-center q-pt-lg">
-              <div class="col text-h6 ellipsis">
-                Log in
-              </div>
-            </div>
-          </q-card-section>
-          <q-card-section>
-            <q-form
-              class="q-gutter-md"
-            >
-              <q-input
-                filled
-                v-model="username"
-                label="Username"
-                lazy-rules
-              />
-
-              <q-input
-                type="password"
-                filled
-                v-model="password"
-                label="Password"
-                lazy-rules
-
-              />
-
-              <div>
-                <q-btn label="Login" to="/" type="button" color="primary"/>
-                <q-btn label="Admin" to="/admin" type="button" color="primary"/>
-                <q-btn label="Profe" to="/profesor" type="button" color="primary"/>
-                <q-btn label="Estudiante" to="/estudiante2" type="button" color="primary"/>
-              </div>
-            </q-form>
-          </q-card-section>
-        </q-card>
-      </q-page>
-    </q-page-container>
-  </q-layout>
-</template>
-
-<script>
-import {defineComponent} from 'vue'
-import {ref} from 'vue'
-export default defineComponent({
-  setup() {
-    return {
-      username: ref('Pratik'),
-      password: ref('12345')
-    }
-  },
-})
-</script>
-
-<style>
-.bg-image {
-  background-image: linear-gradient(135deg, hwb(46 0% 0%) 25%, #0d11d3 75%);
-}
-</style>
--->
 <template>
   <q-page
     class="aaa window-height window-width row justify-center items-center"
@@ -71,20 +5,21 @@ export default defineComponent({
     <q-header>
       <q-btn label="Profe" to="/profesor" type="button" color="primary"/>
       <q-btn label="Estudiante" to="/estudiante" type="button" color="primary"/>
+      <q-btn label="Admin" to="/admin" type="button" color="primary"/>
     </q-header>
       <div class="column q-pa-lg">
         <div class="row">
           <q-card square class="shadow-24" style="width:auto ;height:auto;">
-            <q-card-section class="bg-cyan-9">
-              <h5 class="text-h5 text-white q-my-md">Iniciar sesión</h5>
+            <q-card-section class="bg-cyan-10">
+              <h6 class="text-h6 text-center text-white q-ma-md">Ayudantías DICI</h6>
             </q-card-section>
             <q-card-section>
-              <q-form class="q-px-sm q-pt-xl">
+              <q-form class="q-px-sm q-pt-m">
                 <q-input
                 square
                 v-model="email1"
                 type="email"
-                label="Email"
+                label="Correo institucional"
                 lazy-rules
                 :rules="[
                   val => val && val.length > 0 || 'Este campo es obligatorio',
@@ -95,7 +30,17 @@ export default defineComponent({
                     <q-icon name="email" />
                   </template>
                 </q-input>
-                <q-input square v-model="password1" type="password" label="Password">
+                
+                <q-input 
+                square
+                v-model="password1" 
+                type="password" 
+                label="Contraseña"                
+                lazy-rules
+                :rules="[
+                  val => val && val.length > 0 || 'Este campo es obligatorio',
+
+                ]">
                   <template v-slot:prepend>
                     <q-icon name="lock" />
                   </template>
@@ -107,21 +52,35 @@ export default defineComponent({
 
                 <q-btn-toggle
                   v-model="rol1"
-                  toggle-color="primary"
+                  toggle-color="cyan-5"
                   :options="[
-                    {label: 'Profe', value: 'Profesor'},
+                    {label: 'Administrador', value: 'Administrador'},
+                    {label: 'Profesor', value: 'Profesor'},
                     {label: 'Estudiante', value: 'Estudiante'}
                     ]"
                 >
                 </q-btn-toggle>
               </div>
             </q-card-section>
-            <q-card-actions class="q-px-lg">
+            <q-card-actions class="q-px-xs flex-center">
               <q-card-section>
-                <q-btn unelevated size="l" color="cyan-9" class="full-width " label="Iniciar sesión" @click="login(email1,password1,rol1)"/>
+                <q-btn 
+                unelevated 
+                size="l" 
+                icon="login" 
+                color="cyan-10"  
+                label="Iniciar sesión" 
+                @click="login(email1,password1)"/>
               </q-card-section>
               <q-card-section>
-                <q-btn unelevated outline size="l" color="cyan-8" to="/signin" class="full-width text-white" label="¿No tienes cuenta?"/>
+                <q-btn 
+                unelevated 
+                outline 
+                size="l"  
+                color="cyan-10" 
+                to="/signin" 
+                class="full-width text-white" 
+                label="¿No tienes cuenta?"/>
               </q-card-section>
 
             </q-card-actions>
@@ -133,13 +92,12 @@ export default defineComponent({
 
 <script>
 import { ref } from 'vue';
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword} from "firebase/auth";
+import {signInWithEmailAndPassword} from "firebase/auth";
 import { auth } from 'src/boot/firebase';
+import { collection } from '@firebase/firestore';
 
 
 export default {
-
-
   name: 'Login',
   components:{
 
@@ -147,11 +105,8 @@ export default {
   data: function() {
     return {
       email1: '',
-      email2: '',
       password1: '',
-      password2: '',
       rol1: ref(null),
-      rol2: ref(null)
     }
   },
   methods:{
@@ -159,7 +114,7 @@ export default {
       signInWithEmailAndPassword(auth, email1, password1)
       .then((userCredential) => {
         const user = userCredential.user;
-        if (user.rol1 == "Profesor"){
+        if ( user.rol1 == "Profesor"){
           window.location.assign("#/profesor");
 
         }
@@ -174,25 +129,7 @@ export default {
         console.log(errorCode);
         console.log(errorMessage);
       });
-      console.log(email1,password1,rol1);
-      /* console.log("🚀 ~ file: Login.vue ~ line 186 ~ login ~ this.email1,this,password1,this.rol1", this.email1,this,password1,this.rol1) */
-    },
-    registrar(email2,password2,rol2){
-      createUserWithEmailAndPassword(auth, email2, password2)
-      .then((userCredential) => {
-        const user = userCredential.user;
-      })
-      .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        console.log(errorCode);
-        console.log(errorMessage);
-
-      });
-      console.log(email2,password2, rol2);
-      /* console.log("🚀 ~ file: Login.vue ~ line 201 ~ registrar ~ this.email2,this.password2", this.email2,this.password2) */
     }
-
   }
 }
 </script>

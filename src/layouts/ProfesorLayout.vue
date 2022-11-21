@@ -2,8 +2,8 @@
   <q-layout view="lHh Lpr lff">
       <q-header elevated>
         <q-toolbar>
-          <q-toolbar-title style="color: black" class="text-weight-bold">Ayudantías DICI</q-toolbar-title>
-          <q-btn flat @click="drawer = !drawer" round dense icon="menu" />
+          <q-btn flat @click="drawer = !drawer" color="black" round dense icon="menu" />
+          <q-toolbar-title style="color: black"  class="text-weight-bold">Ayudantías DICI</q-toolbar-title>
         </q-toolbar>
       </q-header>
 
@@ -20,17 +20,17 @@
             <!--Inicio-->
             <q-item clickable v-ripple to="/profesor" active-class="my-menu-link" exact>
               <q-item-section avatar>
-                <q-icon name="inbox" />
+                <q-icon name="description" />
               </q-item-section>
 
               <q-item-section>
-                Inicio
+                Postulaciones
               </q-item-section>
             </q-item>
 
             <q-item clickable v-ripple to="/perfilprofesor" active-class="my-menu-link">
               <q-item-section avatar>
-                <q-icon name="inbox" />
+                <q-icon name="person" />
               </q-item-section>
 
               <q-item-section>
@@ -41,11 +41,11 @@
             <!--Otra opcion-->
             <q-item clickable v-ripple to="/" active-class="my-menu-link">
               <q-item-section avatar>
-                <q-icon name="star" />
+                <q-icon name="logout" />
               </q-item-section>
 
               <q-item-section>
-                Volver
+                Salir
               </q-item-section>
             </q-item>
           </q-list>

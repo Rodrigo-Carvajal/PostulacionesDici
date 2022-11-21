@@ -28,12 +28,64 @@
 --->
 <template>
   <div class="q-pa-md">
-    <q-table
-      title="Gestión de usuarios"
-      :rows="rows"
-      :columns="columns"
-      row-key="name"
-    />
+    <div class="q-pa-md ">
+      <q-form class="row q-col-gutter-md" style="width: reactive" @submit.prevent="procesarFormulario" @reset="reset" ref="myForm">
+
+        <div class="col-12 col-sm-4">
+            <q-input
+              label="Nombre"
+              v-model="nombre"
+              lazy-rules
+              :rules="[val => val && val.length > 0 || 'Falta Información']"
+            />
+        </div>
+        
+        <div class="col-12 col-sm-4">
+            <q-input
+              label="Contraseña"
+              v-model="contrasena"
+              lazy-rules
+              :rules="[val => val && val.length > 0 || 'Falta Información']"
+            />
+        </div>
+        
+        <div class="col-12 col-sm-4">
+            <q-select
+              label="Rol"
+              v-model="rol"
+              transition-show="flip-up"
+              transition-hide="flip-down"
+              lazy-rules
+              :options="options"
+              :rules="[val => val && val.length > 0 || 'Falta Información']"
+            />
+        </div>
+
+        <div class="col-12 col-sm-4">
+            <q-input
+              label="Teléfono"
+              v-model="telefono"
+              lazy-rules
+              :rules="[val => val && val.length > 0 || 'Falta Información']"
+            />
+        </div>
+
+        <div class="col-12 col-sm-4">
+            <q-input
+              label="Correo institucional"
+              v-model="email"
+              lazy-rules
+              :rules="[val => val && val.length > 0 || 'Falta Información']"
+            />
+        </div>
+      </q-form>
+    </div>
+      <q-table
+        title="Gestión de usuarios"
+        :rows="rows"
+        :columns="columns"
+        row-key="name"
+      />
   </div>
 </template>
 
@@ -47,14 +99,17 @@ const columns = [
 ]
 
 const rows = [
-
+  
 ]
 
 export default {
   setup () {
     return {
       columns,
-      rows
+      rows,
+      options: [
+          'Administrador', 'Profesor', 'Estudiante'
+        ]
     }
   }
 }
