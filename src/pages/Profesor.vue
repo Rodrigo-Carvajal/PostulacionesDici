@@ -88,7 +88,8 @@
 import {ref} from 'vue'
 import { useQuasar } from 'quasar'
 import ListaAyudantias from 'src/components/ListaAyudantias.vue'
-
+import { db } from "boot/firebase"
+import { collection } from '@firebase/firestore';
 
 export default {
   components: { ListaAyudantias },
@@ -177,6 +178,22 @@ export default {
         eliminar
       }
   },
+  methods:{
+    async listarpostulaciones(){
+      try {
+        const resDB = await db.collection('postulaciones').get()
+
+        resDB.forEach(res => {
+          console.log(res);
+        })
+      } catch (error) {
+        console.log(error);
+      }
+    }
+  },
+  created(){
+    this.listarpostulaciones();
+  }
 }
 </script>
 

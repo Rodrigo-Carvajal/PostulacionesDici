@@ -28,7 +28,7 @@
                 <q-input 
                   square 
                   clearable 
-                  v-model="email2" 
+                  v-model="email" 
                   type="email" 
                   label="Correo institucional">
                   <template v-slot:prepend>
@@ -100,15 +100,13 @@ export default {
   },
   data: function() {
     return {
-      email2: '',
+      email: '',
       password2: '',
-      rol2: ref(null),
-      rol : ref(null),
     }
   },
   methods:{
-    registrar(email2,password2){
-    createUserWithEmailAndPassword(auth, email2, password2)
+    registrar(email,password2){
+    createUserWithEmailAndPassword(auth, email, password2)
       .then((userCredential) => {
         const user = userCredential.user;
       })
@@ -118,6 +116,7 @@ export default {
         console.log(errorCode);
         console.log(errorMessage);
       });
+
     }
   }
 }
