@@ -102,13 +102,16 @@ export default {
     return {
       email: '',
       password2: '',
+      nombre: '',
+      rut: '',
+      telefono: ''
     }
   },
   methods:{
     registrar(email,password2){
     createUserWithEmailAndPassword(auth, email, password2)
       .then((userCredential) => {
-        const user = userCredential.user;
+        const user = userCredential.user; 
       })
       .catch((error) => {
         const errorCode = error.code;
