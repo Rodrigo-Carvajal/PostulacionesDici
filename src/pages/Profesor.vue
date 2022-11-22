@@ -89,7 +89,7 @@ import {ref} from 'vue'
 import { useQuasar } from 'quasar'
 import ListaAyudantias from 'src/components/ListaAyudantias.vue'
 import { db } from "boot/firebase"
-import { collection } from '@firebase/firestore';
+import { collection } from 'firebase/firestore';
 
 export default {
   components: { ListaAyudantias },

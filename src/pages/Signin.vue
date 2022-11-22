@@ -79,7 +79,7 @@
               size="m" 
               color="cyan-10" 
               class="text-white" 
-              @click="registrar" to="/" label="Registrar"
+              @click="registrar(email,password2)" to="/" label="Registrar"
               />
             </q-card-actions>
             

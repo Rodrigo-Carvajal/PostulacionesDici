@@ -114,7 +114,7 @@ export default {
       signInWithEmailAndPassword(auth, email1, password1)
       .then((userCredential) => {
         const user = userCredential.user;
-        if ( user.rol1 == "Profesor"){
+        if ( this.rol1 == "Profesor"){
           window.location.assign("#/profesor");
 
         }
