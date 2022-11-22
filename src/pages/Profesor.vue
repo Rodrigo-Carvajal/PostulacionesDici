@@ -73,9 +73,9 @@
                 type="submit"
               />
           </q-card-section>
-              
+
         </q-card>
-          
+
     </q-form>
 
     <lista-ayudantias class="card-bg" :ayudantias="ayudantias"/>
@@ -90,9 +90,12 @@ import { useQuasar } from 'quasar'
 import ListaAyudantias from 'src/components/ListaAyudantias.vue'
 import { db } from "boot/firebase"
 import { collection } from 'firebase/firestore';
+import { getDocs, addDoc } from 'firebase/firestore';
 
 export default {
   components: { ListaAyudantias },
+
+
   setup() {
       const $q = useQuasar()
       const myForm = ref(null)
@@ -133,16 +136,25 @@ export default {
           myForm.value.resetValidation()
 
           //Procesar los datos del formulario
-          ayudantias.value = [...ayudantias.value,{
+          /* ayudantias.value = [...ayudantias.value,{
               profesor: profesor.value,
               asignatura: seleccion.value,
               grupos: grupos.value,
               sala: salas.value,
               requisitos: requisito.value,
               hora: hora.value
-          }]
+          }] */
+            addDoc(collection(db, "postulaciones"), {
+              profesor: profesor.value,
+              asignatura: seleccion.value,
+              grupos: grupos.value,
+              sala: salas.value,
+              requisitos: requisito.value,
+              hora: hora.value
+        });
+        /* listarpostulaciones(); */
 
-          reset()
+        reset()
       }
 
       const reset = () => {
@@ -181,11 +193,10 @@ export default {
   methods:{
     async listarpostulaciones(){
       try {
-        const resDB = await db.collection('postulaciones').get()
-
-        resDB.forEach(res => {
-          console.log(res);
-        })
+        const obtenerTodosDocumentos = await getDocs(collection(db, "postulaciones"));
+        obtenerTodosDocumentos.forEach((doc) => {
+          this.ayudantias.push(doc.data())
+        });
       } catch (error) {
         console.log(error);
       }
