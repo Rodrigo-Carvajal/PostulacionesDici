@@ -63,6 +63,7 @@
                 type="number"
                 label="Horas de clases(En cantidad de clases a la semana)"
                 color="cyan-9"
+                lazy-rules
                 :rules="[val => val && val.length > 0 || 'Falta Información']"
               />
           </div>
@@ -158,12 +159,12 @@ export default {
       }
 
       const reset = () => {
-          profesor.value = null
-          seleccion.value = null
-          grupos.value = null
-          salas.value = null
-          requisito.value = null
-          hora.value = null
+          profesor.value = ''
+          seleccion.value = ''
+          grupos.value = ''
+          salas.value = ''
+          requisito.value = ''
+          hora.value = ''
       }
 
     /*  const eliminarPostulaciones = () => {

@@ -12,8 +12,7 @@
               </div>
             </q-card-section>
             <q-card-section>
-              <q-form greedy>
-                
+              <q-form ref="myForm">
                 <q-input 
                   square 
                   clearable 
@@ -79,7 +78,7 @@
               size="m" 
               color="cyan-10" 
               class="text-white" 
-              @click="registrar(email,password2)" to="/" label="Registrar"
+              @click="registrar(email,password2, nombre, telefono, rut)" to="/" label="Registrar"
               />
             </q-card-actions>
             
@@ -93,6 +92,9 @@
 import { ref } from 'vue';
 import { createUserWithEmailAndPassword} from "firebase/auth";
 import { auth } from 'src/boot/firebase';
+import { db } from "boot/firebase"
+import { collection } from 'firebase/firestore';
+import { getDocs, addDoc } from 'firebase/firestore';
 
 export default {
   name: 'login',
@@ -104,23 +106,41 @@ export default {
       password2: '',
       nombre: '',
       rut: '',
-      telefono: ''
+      telefono: '',
     }
   },
+  setup(){
+    const nombre = ref(null)
+    const email = ref(null)
+    const rol = ref(null)
+    const telefono = ref(null)
+    const rut = ref(null)
+    
+  },
   methods:{
-    registrar(email,password2){
+    registrar(email,password2, nombre, telefono, rut){
     createUserWithEmailAndPassword(auth, email, password2)
       .then((userCredential) => {
         const user = userCredential.user; 
-      })
+        const agregarDocumento = addDoc(collection(db, "usuarios"), {
+          'nombre': nombre,
+          'email': email,
+          rol: 'Registrado',
+          'telefono': telefono,
+          'rut': rut
+        })
+        console.log(agregarDocumento)
+      }
+      
+      )
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
         console.log(errorCode);
         console.log(errorMessage);
       });
+    },
 
-    }
   }
 }
 </script>
