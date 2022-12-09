@@ -28,6 +28,17 @@
                   </q-item-section>
                 </q-item>
 
+                <q-item clickable v-ripple to="/recursosestudiante" active-class="my-menu-link">
+                  <q-item-section avatar>
+                    <q-icon name="upload_file" />
+                  </q-item-section>
+
+                  <q-item-section>
+                    Recursos
+                  </q-item-section>
+                </q-item>
+
+
                 <q-item clickable v-ripple to="/perfilestudiante" active-class="my-menu-link" >
                   <q-item-section avatar>
                     <q-icon name="person" />

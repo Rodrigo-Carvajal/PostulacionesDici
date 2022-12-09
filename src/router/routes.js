@@ -22,7 +22,8 @@ const routes = [
     component: () => import('layouts/ProfesorLayout.vue'),
     children: [
       { path: '/profesor', component: () => import('src/pages/Profesor.vue') },
-      { path: '/perfilprofesor', component: () => import('src/pages/PerfilProfesor.vue') }
+      { path: '/perfilprofesor', component: () => import('src/pages/PerfilProfesor.vue') },
+      { path: '/recursos', component: () => import('src/pages/RecursosProfesor.vue') }
     ]
   },
   {
@@ -30,10 +31,11 @@ const routes = [
     component: () => import('layouts/EstudianteLayout.vue'),
     children: [
       { path: '/estudiante', component: () => import('pages/estudiante2.vue')},
-      { path: '/perfilestudiante', component: () => import('pages/PerfilEstudiante.vue')}
+      { path: '/perfilestudiante', component: () => import('pages/PerfilEstudiante.vue')},
+      { path: '/recursosestudiante', component: () => import('src/pages/RecursosEstudiante.vue') }
     ]
   },
- 
+
   // Always leave this as last one,
   // but you can also remove it
   {
